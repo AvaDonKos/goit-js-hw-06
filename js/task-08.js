@@ -1,12 +1,19 @@
 const formEl = document.querySelector('.login-form');
-const inputEmailEl = document.querySelector('input[name="email"]');
-const inputPasswordEl = document.querySelector('input[name="password"]');
 
-formEl.addEventListener('submit', (event) => {
+const handleClick = (event) => {
   event.preventDefault();
-  if (inputEmailEl.value === '' || inputPasswordEl.value === '') {
-    alert('всі поля повинні бути заповнені');
+  if (
+    formEl.elements.email.value === '' ||
+    formEl.elements.password.value === ''
+  ) {
+    alert('Всі поля повинні бути заповнені');
   } else {
-    
+    const newObj = new Object();
+    newObj.email = `${formEl.elements.email.value}`;
+    newObj.password = `${formEl.elements.password.value}`;
+    console.log(newObj);
+    formEl.reset();
   }
-});
+};
+
+formEl.addEventListener('submit', handleClick);

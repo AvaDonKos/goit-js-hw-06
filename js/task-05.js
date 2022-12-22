@@ -1,10 +1,12 @@
-const inputEl = document.querySelector('#name-input');
-const spanEl = document.querySelector('#name-output');
+const nameInputEl = document.querySelector('#name-input');
+const nameOutputEl = document.querySelector('#name-output');
 
-inputEl.addEventListener('input', () => {
-  if (inputEl.value !== '') {
-    spanEl.textContent = inputEl.value;
-    return;
+const duplicateName = () => {
+  if (nameInputEl.value === '') {
+    nameOutputEl.textContent = 'Anonymous';
+  } else {
+    nameOutputEl.textContent = nameInputEl.value;
   }
-  spanEl.textContent = 'Anonymous';
-});
+};
+
+nameInputEl.addEventListener('input', duplicateName);
